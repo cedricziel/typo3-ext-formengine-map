@@ -1,6 +1,6 @@
 {
     "name": "cedricziel/formengine-map",
-    "type": "typo3-cms-plugin",
+    "type": "typo3-cms-extension",
     "license": "MIT",
     "authors": [
         {
