@@ -1,5 +1,6 @@
 {
     "name": "cedricziel/formengine-map",
+    "description": "Embed a map search into your TCA forms",
     "type": "typo3-cms-extension",
     "license": "GPLv2+",
     "authors": [

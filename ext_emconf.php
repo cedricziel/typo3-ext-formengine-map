@@ -2,9 +2,9 @@
 
 $EM_CONF[$_EXTKEY] = [
     'title'            => 'FormEngine map node type',
-    'description'      => '',
+    'description'      => 'Embed a map search into your TCA forms',
     'category'         => 'misc',
-    'version'          => '0.1.0',
+    'version'          => '0.2.0',
     'state'            => 'beta',
     'uploadfolder'     => false,
     'createDirs'       => '',
