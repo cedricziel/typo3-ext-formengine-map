@@ -2,7 +2,7 @@
 
 A simplistic integration for Google Maps on any TCA `text` field.
 
-It allows you to either leverage Google Static Maps for a very privacy protected API Access or Google Maps to search Places with a rich interface.
+It allows you to either leverage Google Static Maps for a very privacy protected API Access or Google Maps to search places with a rich interface.
 
 ## Installation
 
@@ -16,6 +16,7 @@ You need a Google Maps API key activated with the following APIs:
 
 * [Google Maps Geocoding API](https://console.developers.google.com/apis/api/geocoding_backend/overview)
 * [Google Maps JavaScript API](https://console.developers.google.com/apis/api/maps_backend/overview)
+* [Google Static Maps API](https://console.developers.google.com/apis/api/static_maps_backend/overview)
 
 This key needs to be configured in the ExtensionManager.
 
@@ -56,7 +57,7 @@ You can then use the included DataProcessor to transport the value to your view.
 
 ## ViewLayer
 
-As the column is filled with a JSON blob, you need to deserialize it, before passing it to the view. You can do so (preferrably) in a DataProcessor, or use a ViewHelper to deserialize it in the view..
+As the column is filled with a JSON blob, you need to deserialize it, before passing it to the view. You can do so (preferably) in a DataProcessor, or use a ViewHelper to deserialize it in the view..
 
 The extension ships a DataProcessor that attaches to `lib.fluidContent`, when the static template is included.
 
@@ -74,7 +75,7 @@ tt_content.my_ctype {
 }
 ```
 
-This will process the any given maps so that you can use the `map` variable in your fluid templates.
+This will process the given `tx_formenginemap_address` field on the given row so that you can use the `map` variable in your fluid templates.
 
 ## License
 
