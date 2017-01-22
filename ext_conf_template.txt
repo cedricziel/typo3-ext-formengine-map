@@ -3,3 +3,6 @@ enableTtContentField = 0
 
 # cat=basic; type=string; label=Your Google Maps Geocoding API key
 googleMapsGeocodingApiKey =
+
+# cat=basic; type=options[Google Static Maps=google_static, Google Maps=google_maps];
+mode = google_static

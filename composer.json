@@ -1,7 +1,7 @@
 {
     "name": "cedricziel/formengine-map",
     "type": "typo3-cms-extension",
-    "license": "MIT",
+    "license": "GPLv2+",
     "authors": [
         {
             "name": "Cedric Ziel",

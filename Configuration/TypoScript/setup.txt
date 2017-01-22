@@ -1,0 +1,13 @@
+plugin.tx_formmap {
+
+}
+
+lib.fluidContent {
+    dataProcessing {
+        197 = CedricZiel\FormEngine\Map\DataProcessing\FormEngineMapProcessor
+        197 {
+            as = map
+            field = tx_formmap_address
+        }
+    }
+}

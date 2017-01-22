@@ -5,7 +5,7 @@ $EM_CONF[$_EXTKEY] = [
     'description'      => '',
     'category'         => 'misc',
     'version'          => '0.0.1',
-    'state'            => 'dev',
+    'state'            => 'beta',
     'uploadfolder'     => false,
     'createDirs'       => '',
     'clearcacheonload' => true,
@@ -14,7 +14,7 @@ $EM_CONF[$_EXTKEY] = [
     'author_company'   => '',
     'constraints'      => [
         'depends'   => [
-            'typo3' => '7.6.0-7.6.99',
+            'typo3' => '7.6.0-8.9.99',
         ],
         'conflicts' => [
         ],
@@ -22,8 +22,8 @@ $EM_CONF[$_EXTKEY] = [
         ],
     ],
     'autoload'         => [
-        "psr-4" => [
-            "CedricZiel\\FormEngine\\Map\\" => "Classes",
+        'psr-4' => [
+            "CedricZiel\\FormEngine\\Map\\" => 'Classes',
         ],
     ],
 ];

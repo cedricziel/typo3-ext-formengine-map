@@ -3,13 +3,14 @@
 $mapColumn = [
     'tx_formmap_address' => [
         'exclude' => 0,
-        'label' => 'Map',
-        'config' => [
-            'type' => 'text',
+        'label'   => 'Map',
+        'config'  => [
+            'type'       => 'text',
             'renderType' => 'cz_map',
-            'cols' => 40,
-            'rows' => 15,
-            'eval' => 'trim',
+            'cols'       => 40,
+            'rows'       => 15,
+            'eval'       => 'trim',
+            'size'       => 50,
         ],
     ],
 ];
