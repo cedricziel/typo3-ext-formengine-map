@@ -1,72 +1,86 @@
-<style>
-    .cz-map .map-wrapper {
-        height: 250px;
-    }
-    .cz-map .map {
-        height: 100%;
-    }
-    .cz-map .controls {
-        background-color: #fff;
-        border-radius: 2px;
-        border: 1px solid transparent;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-        box-sizing: border-box;
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-        height: 29px;
-        margin-left: 17px;
-        margin-top: 10px;
-        outline: none;
-        padding: 0 11px 0 13px;
-        text-overflow: ellipsis;
-        width: 400px;
-    }
+<f:section name="Style">
+    <style>
+        .cz-map .map-wrapper {
+            height: 250px;
+        }
+        .cz-map .map {
+            height: 100%;
+        }
+        .cz-map .controls {
+            background-color: #fff;
+            border-radius: 2px;
+            border: 1px solid transparent;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            box-sizing: border-box;
+            font-family: Roboto;
+            font-size: 15px;
+            font-weight: 300;
+            height: 29px;
+            margin-left: 17px;
+            margin-top: 10px;
+            outline: none;
+            padding: 0 11px 0 13px;
+            text-overflow: ellipsis;
+            width: 400px;
+        }
 
-    .cz-map .controls:focus {
-        border-color: #4d90fe;
-    }
-</style>
-<div class="cz-map" data-api-key="{apiKey}" data-mode="{mode}" data-current-value="{currentValueJson -> f:format.htmlspecialchars()}">
-    {hidden -> f:format.raw()}
+        .cz-map .controls:focus {
+            border-color: #4d90fe;
+        }
+    </style>
+</f:section>
 
-    <f:if condition="{mode} =='google_static'">
-        {input -> f:format.raw()}
-        <br>
-        <div class="map-preview">
-            <f:if condition="{staticMapUrl}">
-                <img style="max-width: 100%;"
-                     src="{staticMapUrl}"
-                     alt="Static Map for {currentValue.formatted_address}"
-                     title="{currentValue.formatted_address}"
-                >
-            </f:if>
-        </div>
-    </f:if>
+<f:section name="FormElement">
+    <f:render section="Style"/>
 
-    <f:if condition="{mode} =='google_maps'">
-        <div class="map-wrapper">
-            <input class="controls" type="text" placeholder="Enter a location" value="{currentValue.formatted_address}">
-            <div class="map"></div>
-        </div>
-    </f:if>
+    <div class="cz-map" data-api-key="{apiKey}" data-mode="{mode}" data-current-value="{currentValueJson -> f:format.htmlspecialchars()}">
+        <input type="hidden" name="{parameterArray.itemFormElName}" value="{currentValueJson -> f:format.htmlspecialchars()}" />
 
-    <f:if condition="{currentValue.geometry}">
-        <br>
+        <f:if condition="{mode} =='google_static'">
+            <input type="text" {inputAttributes -> f:format.raw()} />
 
-        <details>
-            <summary>{currentValue.formatted_address}</summary>
-            <p>
-                <strong>Place ID:</strong> {currentValue.place_id}<br>
-                <strong>Geometry:</strong> Lat: {currentValue.geometry.location.lat}, Lon: {currentValue.geometry.location.lng}<br>
+            <br>
 
-            </p>
-            <p>Quelle: &copy; Google Maps API</p>
-        </details>
+            <div class="map-preview">
+                <f:if condition="{staticMapUrl}">
+                    <img style="max-width: 100%;"
+                         src="{staticMapUrl}"
+                         alt="Static Map for {currentValue.formatted_address}"
+                         title="{currentValue.formatted_address}"
+                    >
+                </f:if>
+            </div>
+        </f:if>
 
-        <br>
+        <f:if condition="{mode} =='google_maps'">
+            <div class="map-wrapper">
+                <input class="controls" type="text" placeholder="Enter a location" value="{currentValue.formatted_address}">
+                <div class="map"></div>
+            </div>
+        </f:if>
 
-        <a href="#" class="remove-location"><i class="fa fa-trash"></i> Remove</a>
-    </f:if>
-</div>
+        <f:if condition="{currentValue.geometry}">
+            <br>
 
+            <details>
+                <summary>{currentValue.formatted_address}</summary>
+                <p>
+                    <strong>Place ID:</strong> {currentValue.place_id}<br>
+                    <strong>Geometry:</strong> Lat: {currentValue.geometry.location.lat}, Lon: {currentValue.geometry.location.lng}<br>
+
+                </p>
+                <p>Quelle: &copy; Google Maps API</p>
+            </details>
+
+            <br>
+
+            <a href="#" class="remove-location"><i class="fa fa-trash"></i> Remove</a>
+        </f:if>
+    </div>
+</f:section>
+
+<f:section name="Wrapper">
+    <div class="form-control-wrap" style="{f:if(condition: '{width}', then: 'max-width: {width}px')}">
+        {content -> f:format.raw()}
+    </div>
+</f:section>
