@@ -1,3 +1,3 @@
 CREATE TABLE tt_content (
-  tx_formmap_address text NOT NULL,
+  tx_formenginemap_address text NOT NULL,
 );

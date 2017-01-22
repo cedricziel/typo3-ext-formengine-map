@@ -1,7 +1,7 @@
 <?php
 
 $mapColumn = [
-    'tx_formmap_address' => [
+    'tx_formenginemap_address' => [
         'exclude' => 0,
         'label'   => 'Map',
         'config'  => [
@@ -17,4 +17,15 @@ $mapColumn = [
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $mapColumn);
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('tt_content', 'tx_formmap_address');
+$extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['formengine_map']);
+$attachToAllTCATypes = $extensionConfiguration['enableTtContentField'];
+
+if (true === (bool)$attachToAllTCATypes) {
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
+        'tt_content',
+        '--div--;Map,tx_formenginemap_address'
+    );
+}
+
+unset($attachToAllTCATypes);
+unset($extensionConfiguration);

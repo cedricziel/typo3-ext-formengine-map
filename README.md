@@ -22,7 +22,7 @@ This key needs to be configured in the ExtensionManager.
 The default configuration attaches a field of type `text` with `renderType=cz_map` to the `tt_content` TCA table.
 
 ```php
-'tx_formmap_address' => [
+'tx_formenginemap_address' => [
     'exclude' => 0,
     'label'   => 'Map',
     'config'  => [
@@ -68,7 +68,7 @@ tt_content.my_ctype {
         197 = CedricZiel\FormEngine\Map\DataProcessing\FormEngineMapProcessor
         197 {
             as = map
-            field = tx_formmap_address
+            field = tx_formenginemap_address
         }
     }
 }

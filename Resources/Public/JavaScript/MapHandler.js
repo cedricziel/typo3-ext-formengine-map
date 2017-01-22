@@ -2,7 +2,7 @@
  * Module: TYPO3/CMS/FormengineMap/MapHandler
  */
 define(['jquery', 'jquery/autocomplete'], function ($) {
-    var apiUrl = TYPO3.settings.ajaxUrls['cz_maps_geocode_handler'];
+    var apiUrl = TYPO3.settings.ajaxUrls['tx_formenginemap_address_geocode_handler'];
     var MapHandler = {};
 
     /**

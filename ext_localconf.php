@@ -7,7 +7,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry']['cz_map'] = [
 ];
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerAjaxHandler(
-    'cz_maps_geocode_handler',
+    'tx_formenginemap_address_geocode_handler',
     \CedricZiel\FormEngine\Map\Controller\GeocodingController::class . '->geocode',
     true
 );

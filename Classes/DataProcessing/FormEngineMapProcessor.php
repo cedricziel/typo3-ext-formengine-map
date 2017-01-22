@@ -44,6 +44,6 @@ class FormEngineMapProcessor implements DataProcessorInterface
             return $processorConfiguration['as'];
         }
 
-        return 'tx_formmap_processed';
+        return 'tx_formenginemap_processed';
     }
 }

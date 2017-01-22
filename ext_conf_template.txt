@@ -1,5 +1,5 @@
 # cat=basic/enable; type=boolean; label=Do you want to display an example field on all tt_content records?
-enableTtContentField = 0
+enableTtContentField = 1
 
 # cat=basic; type=string; label=Your Google Maps Geocoding API key
 googleMapsGeocodingApiKey =
