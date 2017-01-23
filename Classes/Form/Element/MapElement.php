@@ -46,6 +46,8 @@ class MapElement extends InputTextElement
             $this->minimumInputWidth,
             $this->maxInputWidth
         );
+        // Add a wrapper to remain maximum width
+        $width = (int) $this->formMaxWidth($size);
 
         $currentValue = json_decode($parameterArray['itemFormElValue']) ?: [];
         $attributes = [
@@ -53,8 +55,7 @@ class MapElement extends InputTextElement
             'placeholder' => $this->preparePlaceholderAttribute($currentValue),
         ];
 
-        $html = $this->view->renderSection(
-            'FormElement',
+        $this->view->assignMultiple(
             [
                 'apiKey'           => StaticMaps::getApiKey(),
                 'currentValue'     => $currentValue ? $currentValue : [],
@@ -63,12 +64,12 @@ class MapElement extends InputTextElement
                 'parameterArray'   => $parameterArray,
                 'mode'             => $this->getMode(),
                 'staticMapUrl'     => StaticMaps::getStaticMapsUrl($currentValue),
+                'width'            => $width,
             ]
         );
 
-        // Add a wrapper to remain maximum width
-        $width = (int)$this->formMaxWidth($size);
-        $resultArray['html'] = $this->view->renderSection('Wrapper', ['content' => $html, 'width' => $width]);
+        $resultArray['html'] = $this->view->render();
+
         $resultArray['requireJsModules'] = ['TYPO3/CMS/FormengineMap/MapHandler'];
 
         return $resultArray;
