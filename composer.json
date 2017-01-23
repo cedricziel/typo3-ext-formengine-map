@@ -19,10 +19,32 @@
 			"CedricZiel\\FormEngine\\Map\\": "Classes/"
 		}
 	},
+	"autoload-dev": {
+		"psr-4": {
+			"CedricZiel\\FormEngine\\Map\\Tests\\": "Tests/"
+		}
+	},
 	"extra": {
 		"installer-name": "formengine_map",
 		"typo3/cms": {
-			"extensionKey": "formengine_map"
+			"cms-package-dir": "{$vendor-dir}/typo3/cms",
+			"extensionKey": "formengine_map",
+			"web-dir": ".Build/Web"
 		}
+	},
+	"config": {
+		"vendor-dir": ".Build/vendor",
+		"bin-dir": ".Build/bin",
+		"preferred-install": {
+			"typo3/cms": "source",
+			"typo3/cms-core": "source",
+			"*": "dist"
+		}
+	},
+	"scripts": {
+		"post-autoload-dump": [
+			"mkdir -p .Build/Web/typo3conf/ext/",
+			"[ -L .Build/Web/typo3conf/ext/formengine_map ] || ln -snvf ../../../../. .Build/Web/typo3conf/ext/formengine_map"
+		]
 	}
 }
