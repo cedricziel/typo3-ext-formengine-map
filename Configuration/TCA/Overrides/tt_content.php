@@ -11,6 +11,7 @@ $mapColumn = [
             'rows'       => 15,
             'eval'       => 'trim',
             'size'       => 50,
+            'default'    => '',
         ],
     ],
 ];
@@ -20,7 +21,7 @@ $mapColumn = [
 $extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['formengine_map']);
 $attachToAllTCATypes = $extensionConfiguration['enableTtContentField'];
 
-if (true === (bool)$attachToAllTCATypes) {
+if (true === (bool) $attachToAllTCATypes) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
         'tt_content',
         '--div--;Map,tx_formenginemap_address'

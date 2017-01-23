@@ -33,6 +33,7 @@ The default configuration attaches a field of type `text` with `renderType=cz_ma
         'rows'       => 15,
         'eval'       => 'trim',
         'size'       => 50,
+        'default'    => '',
     ],
 ],
 ```
