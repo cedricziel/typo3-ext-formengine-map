@@ -26,6 +26,7 @@ class GeocodingController
             [
                 'key'     => $this->getApiKey(),
                 'address' => $address,
+                'language' => $this->getApiLanguage(), 
             ]
         );
 
@@ -49,6 +50,19 @@ class GeocodingController
         $configurationUtility = $this->getObjectManager()->get(ConfigurationUtility::class);
         $extensionConfiguration = $configurationUtility->getCurrentConfiguration('formengine_map');
         return $extensionConfiguration['googleMapsGeocodingApiKey']['value'];
+    }
+
+    /**
+     * Retreives the API language setting
+     *
+     * @return string
+     */
+    protected function getApiLanguage()
+    {
+        /** @var ConfigurationUtility $configurationUtility */
+        $configurationUtility = $this->getObjectManager()->get(ConfigurationUtility::class);
+        $extensionConfiguration = $configurationUtility->getCurrentConfiguration('formengine_map');
+        return $extensionConfiguration['googleMapsGeocodingApiLanguage']['value'];
     }
 
     /**
